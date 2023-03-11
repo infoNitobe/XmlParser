@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<data>
+  <country name="china">
+    <rank>1</rank>
+    <year>1</year>
+    <neighbor name="ind" direction="W"/>
+    <neighbor name="korea" direction="E"/>
+  </country>
+  <country name="korea">
+    <rank>2</rank>
+    <year>1000</year>
+    <neighbor name="china" direction="W"/>
+    <neighbor name="japan" direction="E"/>
+  </country>
+  <country name="japan">
+    <rank>64</rank>
+    <year>2023</year>
+    <neighbor name="austraria" direction="S"/>
+    <neighbor name="russia" direction="N"/>
+  </country>
+</data>
