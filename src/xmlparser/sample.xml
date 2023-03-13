@@ -13,9 +13,9 @@
     <neighbor name="japan" direction="E"/>
   </country>
   <country name="japan">
-    <rank>64</rank>
+    <rank>65</rank>
     <year>2023</year>
-    <neighbor name="austraria" direction="S"/>
-    <neighbor name="russia" direction="N"/>
+    <neighbor name="austraria" direction="W"/>
+    <neighbor name="Colombia" direction="E"/>
   </country>
 </data>
