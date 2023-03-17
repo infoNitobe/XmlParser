@@ -8,7 +8,6 @@ input_path =  parent_path + "/" + "sample_text_node.xml"
 tree = minidom.parse(input_path)
 
 elems = tree.getElementsByTagName("country")
-print(elems[0].childNodes)
 
 #make header
 header = []
@@ -27,22 +26,19 @@ for elem in elems:
                 header.append(node.nodeName)
 
 output_path = parent_path + "/" + "output.csv"
-f = open(output_path, "w")
+f = open(output_path, "w", newline="")
 writer = csv.writer(f)
 writer.writerow(header)
 
 #make data
 for elem in elems:
     text = []
-    #todo: why is this wrong?
-    #text.append(elem.getElementsByTagName("rank")[0].nodeValue)
-    #text.append(elem.getElementsByTagName("year")[0].nodeValue)
-
     text.append(elem.getElementsByTagName("rank")[0].childNodes[0].nodeValue)
     text.append(elem.getElementsByTagName("year")[0].childNodes[0].nodeValue)
 
     writer.writerow(text)
 
 f.close()
+
             
 tree.unlink()
