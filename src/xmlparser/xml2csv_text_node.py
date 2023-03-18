@@ -19,9 +19,6 @@ for elem in elems:
         if(node.nodeType == node.TEXT_NODE):
             pass
         else:
-            #for debug
-            #print(node)
-
             if node.nodeName not in header:
                 header.append(node.nodeName)
 
