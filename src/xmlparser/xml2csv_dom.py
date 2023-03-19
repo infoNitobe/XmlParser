@@ -12,7 +12,8 @@ elems = tree.getElementsByTagName("country")
 #make header
 header = []
 for elem in elems:
-    if elem.nodeName not in header and elem.nodeName != "country":
+    #if elem.nodeName not in header and elem.nodeName != "country":
+    if elem.nodeName not in header:
         header.append(elem.nodeName)
     for node in list(elem.childNodes):
         #skip blank text node

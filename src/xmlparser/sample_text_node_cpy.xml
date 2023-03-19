@@ -1,0 +1,15 @@
+<?xml version="2.0"?>
+<data>
+  <country name="china">
+    <rank>1</rank>
+    <year>1</year>
+  </country>
+  <country name="korea">
+    <rank>2</rank>
+    <year>1000</year>
+  </country>
+  <country name="japan">
+    <rank>65</rank>
+    <year>2023</year>
+  </country>
+</data>
