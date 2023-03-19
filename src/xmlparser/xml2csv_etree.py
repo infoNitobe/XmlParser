@@ -66,7 +66,6 @@ def convert_elem_dict(node):
 
     return result
 
-
 import xml.etree.ElementTree as ET
 def parse():
     root = ET.parse('./src/xmlparser/sample_text_node.xml').getroot()
