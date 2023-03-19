@@ -1,7 +1,7 @@
 #added
 #src/xmlparser/sample.xml
 src/xmlparser/icd.xml
-src/xmlparser/xml2csv_etree.py
+src/xmlparser/test_parse_etree.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

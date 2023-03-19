@@ -9,7 +9,9 @@
     <year>1000</year>
   </country>
   <country name="japan">
-    <rank>65</rank>
-    <year>2023</year>
+    <city name="naha">
+      <rank>65</rank>
+      <year>2023</year>
+    </city>
   </country>
 </data>
