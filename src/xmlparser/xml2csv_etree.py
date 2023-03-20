@@ -9,7 +9,6 @@ import sys
 name_cnt ={}
 def nested_dict_to_flat(data, output = {}, name = ""):
     """change nested dictionary to flat dictionary."""
-    # todo: dictではないときにエラーを返そう。try ~ catch構文を使用できない？
     if type(data) is dict:
         for key in data.keys():
             dict_val = data[key]
@@ -18,6 +17,32 @@ def nested_dict_to_flat(data, output = {}, name = ""):
             elif type(dict_val) is list:
                 for item in dict_val:
                     output = nested_dict_to_flat(item, output, name+key+".")
+            # If it is a value, register it as a dictionary value for output
+            else:
+                # If the common parts of the keys are the same, add a suffix to make them unique. 
+                key_common_part = name + key
+                if key_common_part in output.keys():
+                    count = name_cnt[key_common_part] = name_cnt.get(key_common_part, 0) + 1
+                    output[key_common_part+'.'+str(count)] = dict_val
+                else:
+                    output[key_common_part] = dict_val
+    else:
+        print("type of input is wrong. exit.")
+        sys.exit()
+
+    return output
+
+name_cnt ={}
+def nested_dict_to_list(data, output = {}, name = ""):
+    """change nested dictionary to flat dictionary."""
+    if type(data) is dict:
+        for key in data.keys():
+            dict_val = data[key]
+            if type(dict_val) is dict:
+                output = nested_dict_to_list(dict_val, output, name+key+".")
+            elif type(dict_val) is list:
+                for item in dict_val:
+                    output = nested_dict_to_list(item, output, name+key+".")
             # If it is a value, register it as a dictionary value for output
             else:
                 # If the common parts of the keys are the same, add a suffix to make them unique. 
@@ -45,13 +70,11 @@ def convert_elem_dict(node):
         key = element.tag
 
         # When text is present and not empty, get text.
-        # To prevent errors, use strip only when text is present.
-        if element.text and element.text.strip():
-            value = element.text
-
-        # hack: The following should be done even when there are both text nodes and child nodes.
-        else:
-            value = convert_elem_dict(element)
+        if element.text:
+            if element.text.strip():
+                value = element.text
+            else:
+                value = convert_elem_dict(element)
 
         # If there are multiple nodes with the same name in the same hierarchy, their values in dictionary are retained in a list.
         #Below is an example.
